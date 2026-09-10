@@ -1,0 +1,20 @@
+[package]
+name = "stupdentOS"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[[bin]]
+name = "stupdentOS"
+test = false
+bench = false
+
+
+# Build settings used when running `cargo build`
+[profile.dev]
+panic = "abort" # Terminate the program immediately upon panic without unwinding the stack.
+
+# Build settings used when running `cargo build --release`
+[profile.release]
+panic = "abort" # Terminate the program immediately upon panic, without unwinding the stack.
