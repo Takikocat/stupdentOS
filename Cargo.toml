@@ -10,11 +10,3 @@ name = "stupdentOS"
 test = false
 bench = false
 
-
-# Build settings used when running `cargo build`
-[profile.dev]
-panic = "abort" # Terminate the program immediately upon panic without unwinding the stack.
-
-# Build settings used when running `cargo build --release`
-[profile.release]
-panic = "abort" # Terminate the program immediately upon panic, without unwinding the stack.

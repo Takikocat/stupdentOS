@@ -1,19 +1,18 @@
-//cargo build --target thumbv7em-none-eabihf
-
-#![no_std] // Do not link against the Rust standard library.
-#![no_main] // It does not use the execution entry point (the `main` function) used in the Rust language.
+#![no_std]
+#![no_main]
 
 use core::panic::PanicInfo;
 
-#[unsafe(no_mangle)] // This function's name will not be mangled
+// The normal Rust runtime is unavailable, so we provide the entry point.
+// Keep the `_start` symbol name visible to the linker and use a known ABI.
+#[unsafe(no_mangle)]
 pub extern "C" fn _start() -> ! {
-    // The linker will use the function named '_start' as the execution entry point,
-    // so this function becomes the execution entry point.
+
     loop {}
 }
 
-/// This function is called when a panic occurs.
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
+    
     loop {}
 }
